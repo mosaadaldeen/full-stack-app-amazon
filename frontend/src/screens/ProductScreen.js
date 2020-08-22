@@ -10,7 +10,7 @@ function ProductScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
-  }, []);
+  }, [props.match.params.id, dispatch]);
 
   const handleAddToCart = () => {
     props.history.push(`/cart/${props.match.params.id}?qty=${qty}`);

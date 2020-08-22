@@ -9,8 +9,7 @@ export default function HomeScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listProducts());
-    return () => {};
-  }, []);
+  }, [dispatch]);
 
   return loading ? (
     <div>Loading...</div>
@@ -21,7 +20,7 @@ export default function HomeScreen() {
       {products.map((product) => (
         <li key={product._id}>
           <div className="product">
-            <Link to={"/products/" + product._id}>
+            <Link to={"/product/" + product._id}>
               <img
                 className="product-image"
                 src={product.image}
